@@ -1,0 +1,15 @@
+i:SensitivitySourcePositrons = 0
+
+
+s:Ge/SensitivitySource/Type = "TsCylinder"
+s:Ge/SensitivitySource/Material = "Vacuum"
+d:Ge/SensitivitySource/Rmax = 0.001 mm
+d:Ge/SensitivitySource/HL = 0.001 mm
+
+s:So/Positrons/Type				= "Volumetric"
+s:So/Positrons/Component			= "SensitivitySource"
+s:So/Positrons/ActiveMaterial			= "Vacuum"
+s:So/Positrons/BeamParticle			= "e+"
+d:So/Positrons/BeamEnergy			= 0.0 MeV
+b:So/Positrons/RecursivelyIncludeChildren 	= "True"
+ic:So/Positrons/NumberOfHistoriesInRun 	= SensitivitySourcePositrons

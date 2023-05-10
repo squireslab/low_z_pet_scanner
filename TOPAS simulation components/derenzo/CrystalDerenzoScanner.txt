@@ -1,0 +1,126 @@
+
+b:Gr/ViewA/Active	= "false"
+b:Gr/ViewB/Active	= "false"
+b:Gr/ViewC/Active	= "false"
+b:Gr/ViewD/Active	= "false"
+
+#sv:Ph/Default/Modules = 1 "g4em-standard_opt1"
+#d:Ph/Default/CutForElectron = 0.5 um # overrides CutForAllParticles for Electron
+sv:Ph/Default/Modules = 2 "g4em-standard_opt4" "g4em-penelope"
+
+i:Ts/ShowHistoryCountAtInterval = 100000
+i:Ts/NumberOfThreads = 0
+
+sv:Ma/LAB/Components = 2 "Carbon" "Hydrogen"
+# H28 C17
+uv:Ma/LAB/Fractions = 2 0.8786 0.1214
+d:Ma/LAB/Density = 0.860 g/cm3
+d:Ma/LAB/MeanExcitationEnergy = 59.4 eV
+
+sv:Ma/LYSO/Components = 4 "Lutetium" "Yttrium" "Silicon" "Oxygen"
+uv:Ma/LYSO/Fractions = 4 0.714468 0.040338 0.063714 0.18148
+d:Ma/LYSO/Density = 7.4 g/cm3
+d:Ma/LYSO/MeanExcitationEnergy = 411 eV
+
+b:Ts/PauseBeforeQuit = "false"
+
+includeFile = /home/kepler/pet_simulations/derenzo/derenzo_300keV_100.topas
+
+s:Ge/Derenzo/Parent = "AirBox"
+
+background_e = 300
+rod_e = 900
+
+#includeFile = /home/kepler/pet_simulations/derenzo/Sensitivity_Source.topas
+
+#s:Ge/SensitivitySource/Parent = "AirBox"
+#SensitivitySourcePositrons = 10000000
+#d:Ge/SensitivitySource/HL = 0.001 mm
+
+
+# includeFile = /home/kepler/pet_simulations/derenzo/NEMA_Sensitivity.topas
+# s:Ge/NEMASensitivity/Parent = "Airbox"
+# SensitivitySourcePositrons = 1000000
+# d:AluminumThickness = 5 cm
+
+
+s:Ge/World/Material  = "Vacuum"
+d:Ge/World/HLX       = 10.0 m
+d:Ge/World/HLY       = 10.0 m
+d:Ge/World/HLZ       = 10.0 m
+b:Ge/World/Invisible = "TRUE"
+
+s:Ge/AirBox/Material	= "Air"
+s:Ge/AirBox/Type    	= "TsBox"
+d:Ge/AirBox/HLX	= 10.0 m
+d:Ge/AirBox/HLY	= 10.0 m
+d:Ge/AirBox/HLZ	= 10.0 m
+s:Ge/AirBox/Parent	= "world"
+b:Ge/AirBox/Invisible	= "true"
+
+
+s:Ge/DetectorVolume/Type	= "TsCylinder"
+s:Ge/DetectorVolume/Parent	= "AirBox"
+d:Ge/DetectorVolume/HL		= 1 m
+d:Ge/DetectorVolume/RMin	= 0.45 m
+d:Ge/DetectorVolume/RMax	= 0.60 m
+s:Ge/DetectorVolume/Material	= "LYSO" #"G4_SODIUM_IODIDE"
+#d:Ge/DetectorVolume/MaxStepSize	= 1. mm
+d:Ge/DetectorVolume/MinStepSize 	= 0.01 mm
+
+
+
+i:Ts/Seed = 26
+#i:Ts/FindSeedForHistory = 8
+#s:Ts/SeedFile = "TopasSeedForRun_0_History_8.txt"
+
+s:Sc/TruthTuple/Quantity			= "MyNtupleEnergy"
+s:Sc/TruthTuple/Component			= "AirBox"
+b:Sc/TruthTuple/PropagateToChildren	= "True"
+s:Sc/TruthTuple/OutputType			= "ASCII"
+s:Sc/TruthTuple/IfOutputFileAlreadyExists	= "Overwrite"
+b:Sc/TruthTuple/Active				= "False"
+
+
+s:Sc/DetectorTuple/Quantity			= "MyNtupleEnergy"
+s:Sc/DetectorTuple/Component			= "DetectorVolume"
+b:Sc/DetectorTuple/PropagateToChildren	= "True"
+s:Sc/DetectorTuple/OutputType			= "Binary"
+s:Sc/DetectorTuple/IfOutputFileAlreadyExists	= "Overwrite"
+#sv:Sc/DetectorTuple/OnlyIncludeParticlesNotCharged = 1 "neutral"
+d:Sc/DetectorTuple/OnlyIncludeParticlesWithInitialKEAbove = 100. keV
+
+s:Gr/ViewA/Type           = "OpenGL"
+sv:Gr/ViewA/VisibleWorlds = 1 "All"
+i:Gr/ViewA/WindowSizeX    = 900
+i:Gr/ViewA/WindowSizeY    = 900
+d:Gr/ViewA/Theta          = 45 deg
+d:Gr/ViewA/Phi            = 0 deg
+u:Gr/ViewA/Zoom	   = 5
+
+s:Gr/ViewB/Type           = "OpenGL"
+sv:Gr/ViewB/VisibleWorlds = 1 "All"
+i:Gr/ViewB/WindowSizeX    = 900
+i:Gr/ViewB/WindowSizeY    = 900
+d:Gr/ViewB/Theta          = 45 deg
+d:Gr/ViewB/Phi            = 45 deg
+u:Gr/ViewB/Zoom	   = 1
+
+s:Gr/ViewC/Type           = "OpenGL"
+sv:Gr/ViewC/VisibleWorlds = 1 "All"
+i:Gr/ViewC/WindowSizeX    = 900
+i:Gr/ViewC/WindowSizeY    = 900
+d:Gr/ViewC/Theta          = 90 deg
+d:Gr/ViewC/Phi            = 0 deg
+u:Gr/ViewC/Zoom	   = 40
+
+s:Gr/ViewD/Type           = "OpenGL"
+sv:Gr/ViewD/VisibleWorlds = 1 "All"
+i:Gr/ViewD/WindowSizeX    = 900
+i:Gr/ViewD/WindowSizeY    = 900
+d:Gr/ViewD/Theta          = 0 deg
+d:Gr/ViewD/Phi            = 0 deg
+u:Gr/ViewD/Zoom	   = 2
+
+
+
