@@ -1,0 +1,40 @@
+#creates Patient geometry
+s:Ge/Patient/Type		= "TsImageCube"
+s:Ge/Patient/InputDirectory	= "./"
+s:Ge/Patient/InputFile		= "xcat_9.28.22_tumor.out_act_1.bin"		# inputs binary XCAT activity file	
+s:Ge/Patient/MetaDataFile	= "xcat_9.28.22_tumor.out_log"			# inputs XCAT log file (the metadata file)
+s:Ge/Patient/ImagingToMaterialConverter = "XCAT_Activity"		
+s:Ge/Patient/DataType = "FLOAT"						# sets the data type for each voxel of the patient to be a float
+
+# links to materials list for XCAT tissues
+includeFile = XCAT_Materials_tumor.txt
+
+#defines the World
+s:Ge/World/Material    = "G4_AIR"
+d:Ge/World/HLX         = 1.5 m
+d:Ge/World/HLY         = 1.5 m
+d:Ge/World/HLZ         = 1.5 m
+b:Ge/World/Invisible   = "TRUE"
+
+#defines the Patient geometry spatially
+s:Ge/Patient/Parent   = "World"
+d:Ge/Patient/TransX   = 0. m
+d:Ge/Patient/TransY   = 0. m
+d:Ge/Patient/TransZ   = 0. m
+d:Ge/Patient/RotX     = 0. deg
+d:Ge/Patient/RotY     = 0. deg
+d:Ge/Patient/RotZ     = 0 deg
+
+#includes volumetric sources file
+includeFile = vol_sources_e7_tumor.topas
+
+i:Ts/ShowHistoryCountAtInterval = 1000000
+
+#b:Ts/PauseBeforeQuit = "True"
+
+#Ts/UseQt = "True"
+
+
+
+
+
