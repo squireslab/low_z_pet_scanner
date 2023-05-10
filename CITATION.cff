@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+title: TOPAS Simulation of a Low-Z TOF-PET Scanner
+message: 'If you use this software, please cite it as below.'
+type: software
+authors:
+  - family-names: Domurat-Sousa
+    given-names: Kepler
+  - family-names: Poe
+    given-names: Cameron M
+  - family-names: McDaniel
+    given-names: Maya S
+  - family-names: Spieglan
+    given-names: Eric
+  - family-names: Shida
+    given-names: Joao F
+  - family-names: Angelico
+    given-names: Evan
+  - family-names: Adams
+    given-names: Bernhard W
+  - family-names: La Riviere
+    given-names: Patrick J
+  - family-names: Frisch
+    given-names: Henry J
+  - family-names: Squires
+    given-names: Allison
+url: 'https://github.com/squireslab/low_z_pet_scanner'
+version: 1.0.0
+date-released: '2023-05-10'
